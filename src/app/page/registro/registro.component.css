@@ -1,0 +1,8 @@
+*{
+    font-family: raleway, sans-serif;
+}
+
+.container-fluid{
+    background-color: darkgrey;
+    min-height: 100vh;
+}
