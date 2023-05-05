@@ -11,13 +11,3 @@
 /* .quien-soy{
     border-bottom: 1px solid grey;
 } */
-
-.mi-contenedor {
-    min-height: 100vh; /* Establece la altura mínima al 100% de la altura de la ventana del navegador */
-    display: flex; /* Habilita flexbox en el contenedor */
-    flex-direction: column; /* Establece la dirección de los elementos en una columna */
-    justify-content: center; /* Centra verticalmente el contenido del contenedor */
-    align-items: center; /* Centra horizontalmente el contenido del contenedor */
-    padding: 20px; /* Agrega un margen interno al contenedor */
-  }
-  
