@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NavComponent } from 'src/app/share/nav/nav.component';
+import { FooterComponent } from 'src/app/share/footer/footer.component';
 
 @Component({
   selector: 'app-quien-soy',

@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+//estos estaban de antes - REVISAR
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
-import { MenuComponent } from './page/menu/menu.component';
+//import { MenuComponent } from './page/menu/menu.component';
 import { JuegosComponent } from './page/juegos/juegos.component';
-import { TatetiComponent } from './page/tateti/tateti.component';
 import { PreguntadosComponent } from './page/preguntados/preguntados.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { HomeComponent } from './page/home/home.component';
@@ -19,18 +18,19 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { RegistroComponent } from './page/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { ShareModule } from './share/share.module';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    MenuComponent,
+   //MenuComponent,
     JuegosComponent,
-    TatetiComponent,
     PreguntadosComponent,
     NotFoundComponent,
     HomeComponent,
     QuienSoyComponent,
-    RegistroComponent
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ShareModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

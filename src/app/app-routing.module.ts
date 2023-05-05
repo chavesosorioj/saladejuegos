@@ -5,13 +5,12 @@ import { JuegosComponent } from './page/juegos/juegos.component';
 import { LoginComponent } from './page/login/login.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
 import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
-import { TatetiComponent } from './page/tateti/tateti.component';
 import { RegistroComponent } from './page/registro/registro.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
   {path:'juego', component:JuegosComponent, children:[
-    {path:'tateti',component:TatetiComponent},
+    //{path:'tateti',component:TatetiComponent}, VER QUE OTRO CHILDEN LE PONGO
     {path:'**',component:NotFoundComponent}
   ]},
   {path:'login',component:LoginComponent},
