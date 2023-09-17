@@ -9,7 +9,7 @@ import { RegistroComponent } from './page/registro/registro.component';
 
 const routes: Routes = [
   {path:'home',component:HomeComponent},
-  {path:'juego', component:JuegosComponent, children:[
+  {path:'juegos', component:JuegosComponent, children:[
     //{path:'tateti',component:TatetiComponent}, VER QUE OTRO CHILDEN LE PONGO
     {path:'**',component:NotFoundComponent}
   ]},

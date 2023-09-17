@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ShareModule } from 'src/app/share/share.module';
 
 @Component({
   selector: 'app-login',
