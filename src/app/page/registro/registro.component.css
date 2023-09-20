@@ -1,8 +1,8 @@
-*{
-    font-family: raleway, sans-serif;
-}
 
-.container-fluid{
-    background-color: darkgrey;
-    min-height: 100vh;
+.container{
+    min-height: 50vh;
+    color: white;
+    background: rgb(205,26,221);
+    background: radial-gradient(circle, rgba(205,26,221,1) 0%, rgba(223,155,169,1) 100%);
+    border-radius: 8px;
 }
