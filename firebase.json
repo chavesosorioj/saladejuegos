@@ -1,6 +1,7 @@
 {
   "hosting": [
     {
+      "site": "saladejuegos-9cb2f",
       "public": "dist/sala_de_juegos",
       "ignore": [
         "firebase.json",
