@@ -3,6 +3,7 @@ import { UserService } from 'src/app/servicios/user.service';
 import { FormControl, FormGroup, Validators, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
 import { Usuario } from 'src/app/clases/usuario';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-registro',
@@ -17,7 +18,8 @@ export class RegistroComponent implements OnInit {
   constructor(
             private userService: UserService,
             private router: Router,
-            private formBuilder: FormBuilder) {
+            private formBuilder: FormBuilder,
+            private toastr: ToastrService) {
     this.formReg = this.formBuilder.group({
       nombre: ['',[ Validators.required, Validators.minLength(4)]],
       apellido: ['',[ Validators.required, Validators.minLength(4)]],
@@ -45,6 +47,14 @@ export class RegistroComponent implements OnInit {
     // .catch(error =>console.log(error))
 
     this.userService.guardarUsuario(datosUsuario)
+    .then(() => {
+      this.toastr.success('Usuario guardado con exito', 'Guardado');
+      this.router.navigate(['/home']);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
 
   }
 

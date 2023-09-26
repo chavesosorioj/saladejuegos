@@ -26,24 +26,44 @@ export class UserService {
     return signInWithEmailAndPassword(this.auth, email, password);
   }
 
-  guardarUsuario(usuario: Usuario){
+  // guardarUsuario(usuario: Usuario){
 
-    const col = collection(this.firestore, 'actores');
-
-    const docRef = addDoc(col, {
-        nombre: usuario.nombre,
-        apellido: usuario.apellido,
-        mail: usuario.mail,
-        contraseña: usuario.pass
-      })
-      .then((docRef) => {
-        console.log('Usuario agregado con ID:', docRef.id);
-      })
-      .catch((error) => {
-        console.error('Error al agregar Usuario:', error);
-      });
+  //   const col = collection(this.firestore, 'usuarios');
+  //   const docRef = addDoc(col, {
+  //       nombre: usuario.nombre,
+  //       apellido: usuario.apellido,
+  //       mail: usuario.mail,
+  //       contraseña: usuario.pass
+  //     })
+  //     .then((docRef) => {
+  //       console.log('Usuario agregado con ID:', docRef.id);
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error al agregar Usuario:', error);
+  //     });
       
+  // }
+
+  guardarUsuario(usuario: Usuario): Promise<void> {
+    return new Promise<void>((resolve, reject) => {
+      const col = collection(this.firestore, 'usuarios');
+      addDoc(col, {
+        nombre: usuario.nombre,
+        mail: usuario.mail,
+        contraseña: usuario.pass,
+        uid: usuario.uid
+      })
+        .then((docRef) => {
+          console.log('Usuario agregado con ID:', docRef.id);
+          resolve(); 
+        })
+        .catch((error) => {
+          console.error('Error al agregar Usuario:', error);
+          reject(error); 
+        });
+    });
   }
+  
 
   eliminarUsuario(id: string){
     const documento = doc(collection(this.firestore, 'usuarios'), id);

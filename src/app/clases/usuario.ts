@@ -1,14 +1,14 @@
 export class Usuario {
 
     nombre: string;
-    apellido: string;
     mail: string;
     pass: string;
+    uid: string;
 
-    constructor(nombre:string, apellido:string, mail:string, pass:string){
+    constructor(nombre:string, mail:string, pass:string, uid:string){
         this.nombre = nombre,
-        this.apellido = apellido,
         this.mail = mail,
-        this.pass = pass
+        this.pass = pass,
+        this.uid = uid
     }
 }

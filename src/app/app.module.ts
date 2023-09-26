@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './page/login/login.component';
-//import { MenuComponent } from './page/menu/menu.component';
 import { JuegosComponent } from './page/juegos/juegos.component';
 import { PreguntadosComponent } from './page/preguntados/preguntados.component';
 import { NotFoundComponent } from './page/not-found/not-found.component';
@@ -17,6 +16,9 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { RegistroComponent } from './page/registro/registro.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+//animations
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ShareModule } from './share/share.module';
 
@@ -24,7 +26,6 @@ import { ShareModule } from './share/share.module';
   declarations: [
     AppComponent,
     LoginComponent,
-   //MenuComponent,
     JuegosComponent,
     PreguntadosComponent,
     NotFoundComponent,
@@ -42,6 +43,8 @@ import { ShareModule } from './share/share.module';
     FormsModule,
     ReactiveFormsModule,
     ShareModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
