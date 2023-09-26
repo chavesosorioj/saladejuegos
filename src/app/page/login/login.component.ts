@@ -20,19 +20,12 @@ export class LoginComponent implements OnInit {
     private userService: UserService
     ){
       this.formLogin = new FormGroup({
-        email: new FormControl(),
-        password: new FormControl()
+        mail: new FormControl(),
+        pass: new FormControl()
       })
      }
 
   ngOnInit(): void {
-  }
-
-  //borrar
-  redirigir(){
-    if(this.usuario == 'juliana' && this.clave=='juliana')
-      console.log("entre al if");
-      this.ruteo.navigateByUrl('/home'); 
   }
 
   submitLogin(){

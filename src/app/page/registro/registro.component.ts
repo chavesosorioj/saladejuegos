@@ -39,37 +39,32 @@ export class RegistroComponent implements OnInit {
       this.formReg.get('mail')?.value,
       this.formReg.get('pass')?.value,
     );
-    // this.userService.register(this.formReg.value)
-    // .then(response => {
-    //   console.log(response);
-    //   this.router.navigate(['/home']);
-    // })
-    // .catch(error =>console.log(error))
-
-    this.userService.guardarUsuario(datosUsuario)
-    .then(() => {
-      this.toastr.success('Usuario guardado con exito', 'Guardado');
+    this.userService.register(this.formReg.value)
+    .then(response => {
+      console.log('GUARDADO CON EXITO');
+      console.log(response);
       this.router.navigate(['/home']);
     })
-    .catch(error => {
-      console.log(error);
-    });
+    .catch(error =>console.log(error))
+    // this.userService.register(datosUsuario.mail, datosUsuario.pass)
+    // .then(() => {
+    //   console.log('GUARDADO CON EXITO');
+    //   this.toastr.success('Usuario guardado con exito', 'Guardado');
+    //   this.router.navigate(['/home']);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // });
+
+    // this.userService.guardarUsuario(datosUsuario)
+    // .then(() => {
+    //   this.toastr.success('Usuario guardado con exito', 'Guardado');
+    //   this.router.navigate(['/home']);
+    // })
+    // .catch(error => {
+    //   console.log(error);
+    // });
 
 
   }
-
-  // submitForm(){
-  //   console.log('valor',this.formAlta.value);
-  //   const auxPelicula = new Pelicula(
-  //     this.formAlta.get('nombre')?.value,
-  //     this.formAlta.get('tipo')?.value,
-  //     this.formAlta.get('fecha')?.value,
-  //     0,
-  //     'foto'
-  //   );
-
-  //   this.dbPelicula.guardarPelicula(auxPelicula);
-  // }
-
-
 }

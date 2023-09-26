@@ -22,27 +22,18 @@ export class UserService {
     return createUserWithEmailAndPassword(this.auth, email,password);
   }
 
+  // register(email:string, pass:string):Promise<any>{
+  //   return createUserWithEmailAndPassword(this.auth, email,pass);
+  // }
+
+//   public async registerUser(email:string, clave:string):Promise<any>{
+//     const resultado= await this.afAuth.createUserWithEmailAndPassword(email, clave);
+//     return resultado;
+// }
+
   logIn({email, password}: any){
     return signInWithEmailAndPassword(this.auth, email, password);
   }
-
-  // guardarUsuario(usuario: Usuario){
-
-  //   const col = collection(this.firestore, 'usuarios');
-  //   const docRef = addDoc(col, {
-  //       nombre: usuario.nombre,
-  //       apellido: usuario.apellido,
-  //       mail: usuario.mail,
-  //       contraseña: usuario.pass
-  //     })
-  //     .then((docRef) => {
-  //       console.log('Usuario agregado con ID:', docRef.id);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error al agregar Usuario:', error);
-  //     });
-      
-  // }
 
   guardarUsuario(usuario: Usuario): Promise<void> {
     return new Promise<void>((resolve, reject) => {
@@ -63,7 +54,7 @@ export class UserService {
         });
     });
   }
-  
+
 
   eliminarUsuario(id: string){
     const documento = doc(collection(this.firestore, 'usuarios'), id);
