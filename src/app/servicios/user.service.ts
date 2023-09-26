@@ -18,21 +18,12 @@ export class UserService {
     return collectionData(col, {idField: "id"}) as Observable<Usuario[]>;
   }
 
-  register({email, password}: any){
-    return createUserWithEmailAndPassword(this.auth, email,password);
+  register({mail, pass}: any){
+    return createUserWithEmailAndPassword(this.auth, mail,pass);
   }
 
-  // register(email:string, pass:string):Promise<any>{
-  //   return createUserWithEmailAndPassword(this.auth, email,pass);
-  // }
-
-//   public async registerUser(email:string, clave:string):Promise<any>{
-//     const resultado= await this.afAuth.createUserWithEmailAndPassword(email, clave);
-//     return resultado;
-// }
-
-  logIn({email, password}: any){
-    return signInWithEmailAndPassword(this.auth, email, password);
+  logIn({mail, pass}: any){
+    return signInWithEmailAndPassword(this.auth, mail, pass);
   }
 
   guardarUsuario(usuario: Usuario): Promise<void> {
