@@ -1,26 +1,27 @@
 <app-nav></app-nav>
 <div class="container-fluid">
-		<h1 class="h1 m-4">Login</h1>
-		<form class="login col-md-5 p-lg-5 mx-auto my-5" [formGroup]="formLogin" (ngSubmit)="submitLogin()">
-			<div class="mt-2 mb-2">
-				<label for="validationCustom01" class="form-label">Mail</label>
-				<input type="text" class="form-control" formControlName="mail">
-				<span *ngIf="formLogin.get('mail')?.hasError('required') && formLogin.get('mail')?.touched" >
-					El mail es requerido.
-				</span>
-				<span *ngIf="formLogin.get('mail')?.hasError('minlength') && formLogin.get('mail')?.touched">
-					Mail como minimo debe tener 4 caracteres
-				</span>
-			</div>
-			<div class="form-group mt-4 mb-2">
-				<label for="exampleInputPassword1">Contraseña</label>
-				<input type="password" class="form-control" formControlName="pass" id="exampleInputPassword1">
-				<span *ngIf="formLogin.get('pass')?.hasError('minlength') && formLogin.get('pass')?.touched">
-					La contraseña debe tener como minimo 6 caracteres
-				</span>
-			</div>
-			<button type="submit" class="btn btn-primary mt-5">Login</button>			
-		</form>
+	<h1 class="h1 m-4">Login</h1>
+	<form class="m-4" [formGroup]="formLogin" (ngSubmit)="submitLogin()">
+		<div class="col-md-6 mb-2 mt-3">
+			<label for="validationCustom01" class="form-label">Mail</label>
+			<input type="text" class="form-control" formControlName="mail">
+			<span *ngIf="formLogin.get('mail')?.hasError('required') && formLogin.get('mail')?.touched" >
+				El mail es requerido.
+			</span>
+			<span *ngIf="formLogin.get('mail')?.hasError('minlength') && formLogin.get('mail')?.touched">
+				Mail como minimo debe tener 4 caracteres
+			</span>
+		</div>
+		<div class="col-md-6 mb-2">
+			<label for="exampleInputPassword1">Contraseña</label>
+			<input type="password" class="form-control" formControlName="pass" id="exampleInputPassword1">
+			<span *ngIf="formLogin.get('pass')?.hasError('minlength') && formLogin.get('pass')?.touched">
+				La contraseña debe tener como minimo 6 caracteres
+			</span>
+		</div>
+		<button type="submit" class="btn btn-primary m-4">Login</button>			
+	</form>
 </div>
 <app-footer></app-footer>
 
+<!-- col-md-5 p-lg-5 mx-auto my-5 -->

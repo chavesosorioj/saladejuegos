@@ -1,8 +1,20 @@
 
-.container{
-    min-height: 50vh;
+.container-fluid{
+    min-height: 85vh;
     color: white;
-    background: rgb(205,26,221);
-    background: radial-gradient(circle, rgba(205,26,221,1) 0%, rgba(223,155,169,1) 100%);
+    /* background: rgb(205,26,221);
+    background: radial-gradient(circle, rgba(205,26,221,1) 0%, rgba(223,155,169,1) 100%); */
+    background: rgb(34,193,195);
+    background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(118,20,213,1) 100%);
+}
+
+form{
+    min-height: 30h;
+    color: white;
+    /* background: rgb(205,26,221);
+    background: radial-gradient(circle, rgba(205,26,221,1) 0%, rgba(223,155,169,1) 100%); */
+	background: rgb(226,160,203);
+	background: radial-gradient(circle, rgba(226,160,203,1) 0%, rgba(233,8,237,1) 100%);
     border-radius: 8px;
+	border: 2px solid violet;
 }
