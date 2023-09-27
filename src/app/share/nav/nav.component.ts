@@ -10,14 +10,15 @@ import { Usuario } from 'src/app/clases/usuario';
 })
 export class NavComponent implements OnInit {
 
-  mail: string;
+  logged: Boolean = false;
+  mail!: string| null;
   // usuario: any;
   constructor(private rutas: Router,
               private userService: UserService) {
-                console.log('constructor nav');
-                this.mail='';
+                // this.mail='';
               //  this.userService.pruebaUsuarioLogueado();
-                this.usuarioLogueado();
+                // this.usuarioLogueado();  
+                this.actual();
 
   }
 
@@ -42,15 +43,32 @@ export class NavComponent implements OnInit {
   }
 
   usuarioLogueado(){
-    console.log('usuarioLogueado');
+    // console.log('usuarioLogueado');
     let us = this.userService.pruebaUsuarioLogueado();
-    console.log('estoy en nav: ', us);
+    // console.log('estoy en nav: ', us);
   }
 
   desloguearUsuario(){
-    this.userService.logOut();
+    // this.userService.logOut();
+    if(this.userService.logOut()){
+      console.log('desloguearse');
+      this.logged = false;
+    }
+
   }
 
+  actual(){
+    let us = this.userService.usuarioActual();
+    if(us !== null){
+      this.logged = true;
+      this.mail = us.email;
+      console.log('us mail ', us.email);
+    }else{
+      this.logged =false;
+      this.mail = '';
+    }
 
+    console.log('usuario actual: ', us);
+  }
 
 }

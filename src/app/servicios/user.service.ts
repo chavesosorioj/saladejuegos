@@ -51,11 +51,11 @@ export class UserService {
 
   usuarioActual(){
     const autenticado = getAuth();
-    const user = autenticado.currentUser;
-    if (user !== null) 
-      return user;
-    else 
-      throw new Error('Usuario no autenticado');
+    return autenticado.currentUser;
+    // if (user !== null) 
+    //   return user;
+    // else 
+    //   return '';
 
   }
 
@@ -70,6 +70,7 @@ export class UserService {
   logOut(){
     this.auth.signOut();
     this.rutas.navigate(['home']);
+    return true;
   }
 
   eliminarUsuario(id: string){
