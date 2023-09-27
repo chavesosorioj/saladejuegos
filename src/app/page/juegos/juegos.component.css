@@ -1,0 +1,8 @@
+.container-fluid{
+    color: white;
+    background: rgb(122,7,199);
+    background: linear-gradient(90deg, rgba(122,7,199,1) 0%, rgba(214,82,82,1) 100%, rgba(252,176,69,1) 100%);
+    min-height: 85vh; 
+    display: flex;
+    flex-direction: column;
+}
