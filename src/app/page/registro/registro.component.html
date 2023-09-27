@@ -1,7 +1,7 @@
 <app-nav></app-nav>
 <div class="container-fluid" >
-  <h1 class="h1">Registro</h1>
-    <form [formGroup]="formReg" class="m-4"  (ngSubmit)="onSubmit()">
+  <h1 class="h1 m-4">Registro</h1>
+    <form [formGroup]="formReg" class="mx-auto col-md-7"  (ngSubmit)="onSubmit()">
       <div class="col-md-7 m-2">
         <label for="validationCustom01" class="form-label">Nombre</label>
         <input type="text" class="form-control" formControlName="nombre">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/servicios/user.service';
+import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
   selector: 'app-nav',
@@ -8,7 +10,16 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private rutas: Router) { }
+  mail: string;
+  // usuario: any;
+  constructor(private rutas: Router,
+              private userService: UserService) {
+                console.log('constructor nav');
+                this.mail='';
+              //  this.userService.pruebaUsuarioLogueado();
+                this.usuarioLogueado();
+
+  }
 
   ngOnInit(): void {
   }
@@ -29,5 +40,17 @@ export class NavComponent implements OnInit {
   registro(){
     this.rutas.navigate(['registro']);
   }
+
+  usuarioLogueado(){
+    console.log('usuarioLogueado');
+    let us = this.userService.pruebaUsuarioLogueado();
+    console.log('estoy en nav: ', us);
+  }
+
+  desloguearUsuario(){
+    this.userService.logOut();
+  }
+
+
 
 }

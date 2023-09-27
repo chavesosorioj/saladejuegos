@@ -11,8 +11,6 @@
 form{
     min-height: 30h;
     color: white;
-    /* background: rgb(205,26,221);
-    background: radial-gradient(circle, rgba(205,26,221,1) 0%, rgba(223,155,169,1) 100%); */
 	background: rgb(226,160,203);
 	background: radial-gradient(circle, rgba(226,160,203,1) 0%, rgba(233,8,237,1) 100%);
     border-radius: 8px;

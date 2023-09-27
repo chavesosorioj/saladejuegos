@@ -1,8 +1,8 @@
 <app-nav></app-nav>
 <div class="container-fluid">
 	<h1 class="h1 m-4">Login</h1>
-	<form class="m-4" [formGroup]="formLogin" (ngSubmit)="submitLogin()">
-		<div class="col-md-6 mb-2 mt-3">
+	<form class="mx-auto col-md-7" [formGroup]="formLogin" (ngSubmit)="submitLogin()">
+		<div class="col-md-7 mb-2 mt-3">
 			<label for="validationCustom01" class="form-label">Mail</label>
 			<input type="text" class="form-control" formControlName="mail">
 			<span *ngIf="formLogin.get('mail')?.hasError('required') && formLogin.get('mail')?.touched" >
@@ -12,7 +12,7 @@
 				Mail como minimo debe tener 4 caracteres
 			</span>
 		</div>
-		<div class="col-md-6 mb-2">
+		<div class="col-md-7 mb-2">
 			<label for="exampleInputPassword1">Contraseña</label>
 			<input type="password" class="form-control" formControlName="pass" id="exampleInputPassword1">
 			<span *ngIf="formLogin.get('pass')?.hasError('minlength') && formLogin.get('pass')?.touched">

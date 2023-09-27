@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from '@angular/fire/auth';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, getAuth} from '@angular/fire/auth';
 import { Usuario } from '../clases/usuario';
 import { addDoc, collection, collectionData, Firestore, getDoc,
   getDocs, updateDoc, deleteDoc, doc, setDoc, CollectionReference } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ import { Observable } from 'rxjs';
 export class UserService {
 
   constructor(private auth: Auth,
+            private rutas: Router,
             private firestore: Firestore) { }
 
   getUsuario(): Observable<Usuario[]>{
@@ -46,6 +49,28 @@ export class UserService {
     });
   }
 
+  usuarioActual(){
+    const autenticado = getAuth();
+    const user = autenticado.currentUser;
+    if (user !== null) 
+      return user;
+    else 
+      throw new Error('Usuario no autenticado');
+
+  }
+
+  pruebaUsuarioLogueado(){
+    console.log('user service');
+    this.auth.onAuthStateChanged(user =>{
+      console.log(user?.email)
+      return user?.email;
+    })
+  }
+
+  logOut(){
+    this.auth.signOut();
+    this.rutas.navigate(['home']);
+  }
 
   eliminarUsuario(id: string){
     const documento = doc(collection(this.firestore, 'usuarios'), id);
