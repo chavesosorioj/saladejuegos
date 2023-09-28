@@ -12,12 +12,9 @@ export class NavComponent implements OnInit {
 
   logged: Boolean = false;
   mail!: string| null;
-  // usuario: any;
   constructor(private rutas: Router,
               private userService: UserService) {
-                // this.mail='';
-              //  this.userService.pruebaUsuarioLogueado();
-                // this.usuarioLogueado();  
+ 
                 this.actual();
 
   }
@@ -42,14 +39,11 @@ export class NavComponent implements OnInit {
     this.rutas.navigate(['registro']);
   }
 
-  usuarioLogueado(){
-    // console.log('usuarioLogueado');
-    let us = this.userService.pruebaUsuarioLogueado();
-    // console.log('estoy en nav: ', us);
-  }
+  // usuarioLogueado(){
+  //   let us = this.userService.pruebaUsuarioLogueado();
+  // }
 
   desloguearUsuario(){
-    // this.userService.logOut();
     if(this.userService.logOut()){
       console.log('desloguearse');
       this.logged = false;

@@ -1,7 +1,6 @@
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
-  style="background-color: black;">
-    <div class="container">
+<nav  *ngIf="logged == false;else loggedNav"    class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
+  <div class="container">
       <a class="navbar-brand" routerLink="home"(click)="home()">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,22 +21,38 @@
           <li class="nav-item active">
             <a class="nav-link" (click)="quienSoy()">Quien soy</a>
           </li>
-          <!-- <li class="nav-item active">
-            <a class="nav-link" routerLink="" (click)="desloguearUsuario()">Salir</a>
-          </li> -->
-          <!-- <li class="nav-item active">
-            <a class="nav-link" routerLink="">Usuario</a>
-          </li> -->
         </ul>
-        <ul  *ngIf="logged !== false" class="navbar-nav ml-auto">
+      </div>
+   </div>
+</nav>
+
+
+<ng-template #loggedNav>
+  <nav  class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: black;">
+    <div class="container">
+      <a class="navbar-brand" routerLink="home"(click)="home()">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" (click)="juegos()">Juegos</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" (click)="quienSoy()">Quien soy</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" routerLink="" (click)="desloguearUsuario()">Salir</a>
           </li>
           <li class="nav-item active">
               <a class="nav-link">Usuario: {{this.mail}}</a>
           </li>
-      </ul>
+        </ul>
       </div>
-    </div>
+   </div>
   </nav>
-
+</ng-template>

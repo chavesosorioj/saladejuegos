@@ -52,19 +52,6 @@ export class UserService {
   usuarioActual(){
     const autenticado = getAuth();
     return autenticado.currentUser;
-    // if (user !== null) 
-    //   return user;
-    // else 
-    //   return '';
-
-  }
-
-  pruebaUsuarioLogueado(){
-    console.log('user service');
-    this.auth.onAuthStateChanged(user =>{
-      console.log(user?.email)
-      return user?.email;
-    })
   }
 
   logOut(){
