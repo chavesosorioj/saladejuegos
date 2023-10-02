@@ -3,28 +3,23 @@
     <div class="banner position-relative overflow-hidden p-3 p-md-2 m-md-3 text-center bg-light">
         <div class="col-md-5 p-lg-2 mx-auto my-5">
             <h1 class="h1">Sala de Juegos</h1>
-
-            <!-- <div class="d-grid gap-2 col-6 mx-auto">
-                <a class="btn btn-outline-light" href="#">Registrarse</a> 
-                <a class="btn btn-outline-light" href="#">Login</a> 
-            </div> -->
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" (click)="ahorcado()">
                     <h5 class="card-title">Ahorcado</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">Adivina la palabra antes de que se completen todas las partes del cuerpo</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" (click)="mayorMenor()">
                     <h5 class="card-title">Mayor o menor</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">La carta que te toque sera mayor o menor a la enterior? Averigualo!</p>
                 </div>
             </div>
         </div>
@@ -33,18 +28,18 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" (click)="preguntados()">
                     <h5 class="card-title">Preguntados</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">Obtene el mayor número de respuestas correctas y avanza por el tablero para ganar</p>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body" (click)="propio()">
                     <h5 class="card-title">(juego propio)</h5>
-                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit  adipisicing elit.</p>
                 </div>
             </div>
         </div>
