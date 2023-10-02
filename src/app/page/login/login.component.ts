@@ -41,5 +41,14 @@ export class LoginComponent implements OnInit {
     })
     .catch(error => console.log(error))
   }
+
+  autocomplete(){
+    const mail = 'juli@utn.com';
+    const cont = 'julii01';
+    this.formLogin.patchValue({
+      mail: mail,
+      pass: cont
+    });
+  }
 }
 

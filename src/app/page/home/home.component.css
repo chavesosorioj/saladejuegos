@@ -17,6 +17,12 @@
 	font-weight: bold;
   border-radius: 8px;
   }
+
+  .card {
+    margin: 10px;
+    color: white;
+    background: rgb(10, 101, 162);
+  }
   
   /*
    * Extra utilities
