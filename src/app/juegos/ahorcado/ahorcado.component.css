@@ -1,0 +1,31 @@
+.container-fluid{
+    min-height: 85vh; 
+    display: flex;
+    flex-direction: column;
+    background-color:  rgb(192, 242, 235);
+  }
+  
+  .banner{
+	background: rgb(2,0,36);
+background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,101,162,1) 53%, rgba(0,203,171,1) 100%);
+	color: white;
+	font-weight: bold;
+  border-radius: 8px;
+  }
+
+  /*
+   * Extra utilities
+   */
+  
+   .flex-equal > * {
+    -ms-flex: 1;
+    flex: 1;
+  }
+  @media (min-width: 768px) {
+    .flex-md-equal > * {
+      -ms-flex: 1;
+      flex: 1;
+    }
+  }
+  
+  .overflow-hidden { overflow: hidden; }
