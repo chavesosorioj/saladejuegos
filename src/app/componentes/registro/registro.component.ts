@@ -41,7 +41,8 @@ export class RegistroComponent implements OnInit {
     })
     .catch(error =>{
       console.log(error);
-      this.toastr.error('No se pudo guardar el usuario', 'Error');
+      this.toastr.error(this.userService.authError(error.code), 'Error');
+      this.formReg.reset();
     });
   }
 }

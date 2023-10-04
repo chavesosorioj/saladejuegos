@@ -16,7 +16,7 @@ export class UserService {
             private rutas: Router,
             private firestore: Firestore) { }
 
-  getUsuario(): Observable<Usuario[]>{
+  getUsuarios(): Observable<Usuario[]>{
     const col = collection(this.firestore, 'usuarios');
     return collectionData(col, {idField: "id"}) as Observable<Usuario[]>;
   }
@@ -63,5 +63,18 @@ export class UserService {
   eliminarUsuario(id: string){
     const documento = doc(collection(this.firestore, 'usuarios'), id);
     deleteDoc(documento);
+  }
+
+  authError(err:string){
+    switch(err){
+      case 'auth/email-already-in-use':
+        return 'El mail ya se encuentra registrado';
+      case 'auth/invalid-email':
+        return 'Mail inválido';
+      case 'auth/invalid-password':
+        return 'Contraseña inválida';
+      default:
+        return 'Error';
+    }
   }
 }
