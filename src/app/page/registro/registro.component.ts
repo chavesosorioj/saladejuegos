@@ -33,38 +33,16 @@ export class RegistroComponent implements OnInit {
 
   onSubmit(){
     console.log(this.formReg.value);
-    const datosUsuario = new Usuario(
-      this.formReg.get('nombre')?.value,
-      this.formReg.get('apellido')?.value,
-      this.formReg.get('mail')?.value,
-      this.formReg.get('pass')?.value,
-    );
     this.userService.register(this.formReg.value)
     .then(response => {
       console.log('GUARDADO CON EXITO');
       console.log(response);
+      this.toastr.success('Usuario guardado con exito', 'Guardado');
       this.router.navigate(['/home']);
     })
-    .catch(error =>console.log(error))
-    // this.userService.register(datosUsuario.mail, datosUsuario.pass)
-    // .then(() => {
-    //   console.log('GUARDADO CON EXITO');
-    //   this.toastr.success('Usuario guardado con exito', 'Guardado');
-    //   this.router.navigate(['/home']);
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    // });
-
-    // this.userService.guardarUsuario(datosUsuario)
-    // .then(() => {
-    //   this.toastr.success('Usuario guardado con exito', 'Guardado');
-    //   this.router.navigate(['/home']);
-    // })
-    // .catch(error => {
-    //   console.log(error);
-    // });
-
-
+    .catch(error =>{
+      console.log(error);
+      this.toastr.error('No se pudo guardar el usuario', 'Error');
+    });
   }
 }

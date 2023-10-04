@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { ShareModule } from 'src/app/share/share.module';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +16,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private ruteo:Router,
     private userService: UserService,
-    private formBuilder: FormBuilder
-    
+    private formBuilder: FormBuilder,
+    private toastr: ToastrService
     ){
-      // this.formLogin = new FormGroup({
-      //   mail: new FormControl(),
-      //   pass: new FormControl()
-      // })
       this.formLogin = this.formBuilder.group({
         mail: ['',[ Validators.required, Validators.email]],
         pass: ['',[ Validators.required, Validators.minLength(6)]],
@@ -37,14 +33,18 @@ export class LoginComponent implements OnInit {
     this.userService.logIn(this.formLogin.value)
     .then(response =>{
       console.log(response);
+      this.toastr.success('Usuario logueado con exito', 'Logged');
       this.ruteo.navigate(['/home']);
     })
-    .catch(error => console.log(error))
+    .catch(error => {
+      console.log(error);
+      this.toastr.error('Usuario incorrecto', 'Error');
+    });
   }
 
   autocomplete(){
     const mail = 'juli@utn.com';
-    const cont = 'julii01';
+    const cont = 'juli01';
     this.formLogin.patchValue({
       mail: mail,
       pass: cont
