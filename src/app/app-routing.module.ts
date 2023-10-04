@@ -1,18 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './page/home/home.component';
+import { HomeComponent } from './componentes/home/home.component';
 // import { JuegosComponent } from './page/juegos/juegos.component';
-import { LoginComponent } from './page/login/login.component';
-import { NotFoundComponent } from './page/not-found/not-found.component';
-import { QuienSoyComponent } from './page/quien-soy/quien-soy.component';
-import { RegistroComponent } from './page/registro/registro.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { NotFoundComponent } from './componentes/not-found/not-found.component';
+import { QuienSoyComponent } from './componentes/quien-soy/quien-soy.component';
+import { RegistroComponent } from './componentes/registro/registro.component';
+import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
 
 const routes: Routes = [
+  {path: '', component:BienvenidoComponent},
   {path:'home',component:HomeComponent},
-  // {path:'juegos', component:JuegosComponent, children:[
-  //   //{path:'tateti',component:TatetiComponent}, VER QUE OTRO CHILDEN LE PONGO
-  //   {path:'**',component:NotFoundComponent}
-  // ]},
   {path:'login',component:LoginComponent},
   {path:'quien-soy',component:QuienSoyComponent},
   {path: 'registro', component: RegistroComponent},

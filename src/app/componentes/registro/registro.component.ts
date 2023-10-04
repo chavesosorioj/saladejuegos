@@ -35,7 +35,6 @@ export class RegistroComponent implements OnInit {
     console.log(this.formReg.value);
     this.userService.register(this.formReg.value)
     .then(response => {
-      console.log('GUARDADO CON EXITO');
       console.log(response);
       this.toastr.success('Usuario guardado con exito', 'Guardado');
       this.router.navigate(['/home']);
