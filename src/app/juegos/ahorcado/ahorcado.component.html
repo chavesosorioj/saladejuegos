@@ -7,5 +7,21 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-4 d-flex flex-column">
+          <div class="imagen">
+            <img src="../../../assets/ahorcado.png" class="img-fluid img-container" alt="">
+          </div>
+        </div>
+        <div class="col-sm-8 d-flex flex-column">
+            <div class="palabra  flex-grow-1 d-flex align-items-center justify-content-center">
+                <p>Palabra actual: {{ palabraActual }}</p>
+                <p>Intentos restantes: {{ intentosUs }}</p>
+                <p>Letras usadas: {{ letrasUsadas.join(', ') }}</p>
+            </div>    
+            <div class=" letras my-3  justify-content-center">
+                <button class=" m-1 letras_button" *ngFor="let letra of dicc" (click)="intentarLetra(letra)" [disabled]="letrasUsadas.includes(letra)">{{letra}}</button>
+            </div>
+    </div>
 </div>
 <app-footer></app-footer>

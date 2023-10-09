@@ -22,6 +22,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  inicio(){
+    this.rutas.navigate(['']);
+  }
   home(){
     this.rutas.navigate(['home']);
   }
@@ -38,15 +41,15 @@ export class NavComponent implements OnInit {
   registro(){
     this.rutas.navigate(['registro']);
   }
-
-  // usuarioLogueado(){
-  //   let us = this.userService.pruebaUsuarioLogueado();
-  // }
+  chat(){
+    this.rutas.navigate(['chat']);
+  }
 
   desloguearUsuario(){
     if(this.userService.logOut()){
       console.log('desloguearse');
       this.logged = false;
+      this.rutas.navigate(['']);
     }
 
   }
