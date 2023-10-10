@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-ahorcado',
@@ -16,7 +17,7 @@ export class AhorcadoComponent implements OnInit {
   palabraActual: string='';
   letrasUsadas: string[] = [];
 
-  constructor() { 
+  constructor(private toastr: ToastrService) { 
     this.iniciarJuego();
   }
 
@@ -25,13 +26,16 @@ export class AhorcadoComponent implements OnInit {
 
   iniciarJuego(){
     this.palabraSecreta = this.palabras[Math.floor(Math.random() * this.palabras.length)];
-    this.palabraActual = '_'.repeat(this.palabraSecreta.length);
+    console.log(this.palabraSecreta);
+    this.palabraActual = '_ '.repeat(this.palabraSecreta.length);
     this.intentosUs = 6;
     this.letrasUsadas = [];
   }
 
 
   intentarLetra(letra: string) {
+    let nuevaPalabra = '';
+
     if (this.letrasUsadas.includes(letra)) {
       return;
     }
@@ -41,21 +45,34 @@ export class AhorcadoComponent implements OnInit {
     if (this.palabraSecreta.includes(letra)) {
       for (let i = 0; i < this.palabraSecreta.length; i++) {
         if (this.palabraSecreta[i] === letra) {
-          this.palabraActual = this.palabraActual.substring(0, i) + letra + this.palabraActual.substring(i + 1);
+          nuevaPalabra += letra + ' ';
+        } else {
+          nuevaPalabra += this.palabraActual[i * 2] + ' '; 
         }
       }
     } else {
       this.intentosUs--;
+
+      for (let i = 0; i < this.palabraSecreta.length; i++) {
+        nuevaPalabra += this.palabraActual[i * 2] + ' '; 
+      }
     }
 
-    if (this.palabraActual === this.palabraSecreta) {
-      alert('¡Has ganado!');
+    this.palabraActual = nuevaPalabra.trim();
+
+    this.checkWin();
+  }
+
+  checkWin(){
+    if (!this.palabraActual.includes('_')) {
+      this.toastr.success('¡Ganaste! La palabra era: ' + this.palabraSecreta, 'Ganaste');
       this.iniciarJuego();
     } else if (this.intentosUs === 0) {
-      alert('¡Has perdido! La palabra secreta era: ' + this.palabraSecreta);
+      this.toastr.error('¡Perdiste! La palabra secreta era: ' + this.palabraSecreta, 'Perdiste');
       this.iniciarJuego();
     }
   }
-
-
 }
+
+
+
