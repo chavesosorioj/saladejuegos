@@ -5,7 +5,7 @@
     flex-direction: column;
 	color: white;
     /* padding: 5px; */
-    background-color:  rgb(177, 129, 206);
+    background-color:  rgb(232, 213, 244);
 }
 
 form{
@@ -17,3 +17,6 @@ form{
 	border: 2px solid violet;
 }
 
+h1{
+    color: rgb(175, 5, 178);
+}

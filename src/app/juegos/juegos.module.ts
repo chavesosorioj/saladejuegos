@@ -8,6 +8,7 @@ import { ShareModule } from '../share/share.module';
 
 
 
+
 @NgModule({
   declarations: [
     AhorcadoComponent,
@@ -17,7 +18,7 @@ import { ShareModule } from '../share/share.module';
   imports: [
     CommonModule,
     JuegosRoutingModule,
-    ShareModule
+    ShareModule,
   ]
 })
 export class JuegosModule { }

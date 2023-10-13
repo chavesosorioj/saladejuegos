@@ -5,6 +5,12 @@
             <h1 class="h1">Mayor - Menor</h1>
         </div>
     </div>
+    <div>
+        <img *ngIf="currentCard" [src]="currentCard.image" alt="Card Image" />
+        <p>{{ result }}</p>
+        <button (click)="checkGuess(true)">Mayor</button>
+        <button (click)="checkGuess(false)">Menor</button>
+      </div>
 
 </div>
 <app-footer></app-footer>

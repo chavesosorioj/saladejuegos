@@ -2,7 +2,7 @@
     min-height: 85vh; 
     display: flex;
     flex-direction: column;
-    background-color:  rgb(192, 242, 235);
+    background-color:  rgb(221, 237, 235);
   }
   
   .banner{
@@ -11,6 +11,18 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(10,101,162,1) 53%, rg
 	color: white;
 	font-weight: bold;
   border-radius: 8px;
+  }
+
+  button{
+    font-size: 1rem;
+    padding: .6rem 1.2rem;
+    background-color: rgba(10,101,162,1);
+    margin: .3rem .6rem;
+    border-radius: .5rem;
+    border: 1px solid rgb(2,0,36);
+    color: #fff;
+    filter: drop-shadow(0px 0px 2px  rgb(2,0,36));
+    font-weight: 600;
   }
 
   /*

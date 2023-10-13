@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { UserService } from 'src/app/servicios/user.service';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Usuario } from 'src/app/clases/usuario';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,12 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
+  user: Usuario = {
+    nombre: 'juliana',
+    mail: 'juli@utn.com',
+    pass: 'juli01',
+    uid: ''
+  }
 
   constructor(
     private ruteo:Router,
@@ -43,13 +50,29 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  autocomplete(){
-    const mail = 'juli@utn.com';
-    const cont = 'juli01';
-    this.formLogin.patchValue({
-      mail: mail,
-      pass: cont
-    });
-  }
+
 }
+
+
+
+// login() {
+//   console.log(this.user);
+//   this.loading = true;
+
+//   this.authService
+//   .login()
+//   .subscribe({
+//     next: () => {
+      
+//       this.router.navigate(['/admin']);
+//     },
+//     error: (err) => {
+//       console.log(err);
+//       this.loading = false;
+//     },
+//     complete: () => {
+//       this.loading = false;
+//     }
+//   });
+// }
 

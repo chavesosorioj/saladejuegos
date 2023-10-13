@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ShareModule } from './share/share.module';
 import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { BienvenidoComponent } from './componentes/bienvenido/bienvenido.compone
     ReactiveFormsModule,
     ShareModule,
     BrowserAnimationsModule, 
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
